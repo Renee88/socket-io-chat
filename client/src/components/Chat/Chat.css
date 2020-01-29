@@ -1,0 +1,19 @@
+body{
+    margin:0;
+}
+.outer-container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-areas: "info info"
+                         "friends chat"
+                         "friends input";
+    grid-template-rows: 1fr 9fr 1fr;
+    grid-template-columns: 2fr 7fr;
+    background-color: #222222;
+}
+
+.chat-container {
+    grid-area: chat;
+    background-color: white;
+}

@@ -1,0 +1,34 @@
+.infobar-container{
+    grid-area: info;
+    background-color: royalblue;
+    display: grid;
+    grid-template-areas: "room .  close";
+    grid-template-columns: 2fr 6fr 1fr;
+
+}
+
+.online{
+    color: #2ecc71;
+    margin-right: 10px;
+}
+
+.room-name{
+    color: white;
+}
+
+.close{
+    color: white;
+    padding: 10px;
+}
+
+.left-inner-container{
+    grid-area: room;
+    display: flex;
+    padding: 10px;
+}
+
+.right-inner-container{
+    grid-area: close;
+    display: grid;
+    justify-items: end;
+}

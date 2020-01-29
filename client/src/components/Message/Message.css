@@ -1,0 +1,26 @@
+.outgoing{
+    display: grid;
+    justify-content: end;
+    height: fit-content;
+}
+
+.background-purple{
+    background-color: #E8D7FF;
+}
+
+.background-pink{
+    background-color: #ecf0f1;
+}
+
+.message-text{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.incoming{
+    display: grid;
+    justify-items: left;
+    height: fit-content;
+    width: fit-content;
+}
