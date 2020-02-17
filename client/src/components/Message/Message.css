@@ -1,14 +1,28 @@
+.incoming{
+    height: fit-content;
+    width: fit-content;
+}
+
 .outgoing{
     display: grid;
     justify-content: end;
     height: fit-content;
+    color:white;
 }
 
-.background-purple{
-    background-color: #E8D7FF;
+.user-name{
+    margin-left: 10px ;
 }
 
-.background-pink{
+.message-box{
+    margin: 10px;
+}
+
+.background-orange{
+    background-color: #2ecc71;
+}
+
+.background-light{
     background-color: #ecf0f1;
 }
 
@@ -16,11 +30,4 @@
     display: inline-block;
     padding: 10px;
     border-radius: 10px;
-}
-
-.incoming{
-    display: grid;
-    justify-items: left;
-    height: fit-content;
-    width: fit-content;
 }

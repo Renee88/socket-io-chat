@@ -3,11 +3,12 @@
     display: flex;
 }
 
-input{
+.message-input{
     width:90%;
     height: 50%;
     margin: auto;
     border-radius: 5px;
+    padding: 5px;
 }
 
 .send{
@@ -19,5 +20,7 @@ input{
     height: 60px;
     margin: auto;
     border-radius: 50%;
-    background-color: #2ecc71;
+    background-color:#20bf6b ;
+    
+    font-size: 20px;
 }

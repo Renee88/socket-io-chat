@@ -1,0 +1,9 @@
+img{
+    height: 50px;
+    width:50px;
+}
+
+.user-avatar{
+    border: #222222 solid 2px ;
+    margin: 3px;
+}

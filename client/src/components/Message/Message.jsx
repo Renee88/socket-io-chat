@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactEmoji from 'react-emoji'
 import './Message.css'
 
 const Message = ({ message: { user, text }, name }) => {
@@ -12,10 +13,10 @@ const Message = ({ message: { user, text }, name }) => {
     return (
         isSentByCuurentUser
             ? <div className={`message-box outgoing`}>
-                <p className="message-text background-purple">{text}</p>
+                <p className="message-text background-orange">{ReactEmoji.emojify(text)}</p>
             </div>
             : <div className={`message-box incoming`}>
-                <p className="message-text background-pink">{text}</p>
+                <p className="message-text background-light">{ReactEmoji.emojify(text)}</p>
                 <span className="user-name">{user}</span>
             </div>
     )

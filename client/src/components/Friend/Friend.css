@@ -1,0 +1,51 @@
+.user-in-room{
+    color: black;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.curr-user-container{
+    display: flex;
+    order: -1;
+    align-items: center;
+    color: black;
+    background-color: #E8D7FF;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.user-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    background-color: #E8D7FF;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.small{
+    height: 20px;
+    width: 20px;
+}
+
+/* .private-chat{
+    display: flex;
+    justify-self: flex-end;
+    margin-left: auto;
+    background-color: #20bf6b;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+} */
+
+.user-name-avatar{
+    display: flex;
+    align-items: center;
+}

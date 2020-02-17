@@ -5,10 +5,12 @@ const Input = ({ message, setMessage, sendMessage }) => {
         <div className="input-container">
             <input
                 value={message}
+                placeholder="Type your message here..."
                 onChange={(event) => { setMessage(event.target.value) }}
                 onKeyPress={(event) => event.key === 'Enter' ? sendMessage(event) : null}
+                className="message-input"
             />
-            <div className="send" onClick={sendMessage}>Send</div>
+            <div className="send" onClick={sendMessage}><i className="fas fa-paper-plane"></i></div>
         </div>
     );
 };
