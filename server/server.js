@@ -15,33 +15,38 @@ const io = socketio(server)
 io.on('connection', (socket) => {
     console.log('We have a new connection!!!')
 
-    socket.on('join', ({ name, room }, callback) => {
-        const { error, user } = addUser({ id: socket.id, name, room })
+    socket.on('join', ({ name, room, image }, callback) => {
+        const { error, user } = addUser({ id: socket.id, name, room, image })
 
-        if(error) return callback(error)
+        if (error) return callback(error)
 
-        socket.emit('message', {user: 'admin', text:`${user.name}, welcome to the room ${user.room}`})
-        socket.broadcast.to(user.room).emit('message', {user:'admin', text: `${user.name} has joined!`})
+        socket.emit('message', { user: 'admin', text: `${user.name}, welcome to the room ${user.room}` })
+        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` })
         socket.join(user.room)
+
+        io.to(user.room).emit('roomData', { users: getUsersInRoom(user.room) })
 
         callback()
     })
 
-    socket.on('sendMessage', (message,callback) => {
-        const {user, error} = getUser(socket.id)
-        if(error){
-            socket.emit('rejoinUser', {error})
-            return
-        }
-        io.to(user.room).emit('message', {user: user.name, text: message})
+    socket.on('sendMessage', (message, callback) => {
+        const { user, error } = getUser(socket.id)
+        io.to(user.room).emit('message', { user: user.name, text: message })
+        io.to(user.room).emit('roomData', { users: getUsersInRoom(user.room) })
         callback()
+    })
+
+    socket.on('private', ({ currUser, friend }) => {
+        const { id, name } = friend
+        io.to(`${id}`).emit('invite', { invitingUser: currUser, invitedUser: friend })
     })
 
 
     socket.on('disconnect', () => {
         let user = removeUser(socket.id)
-        if(user){
-            io.to(user.room).emit('message',{user:'admin', text: `${user.name} has left.`})
+        if (user) {
+            io.to(user.room).emit('message', { user: 'admin', text: `${user.name} has left.` })
+            io.to(user.room).emit('roomData', { users: getUsersInRoom(user.room) })
         }
 
         console.log('Client disconnected!!!')
